@@ -24,9 +24,6 @@ class CurrenciesService : Service() {
                     response.body()?.also {  currencyList ->
                         CurrencyConverterLiveData.currenciesLiveData.postValue(currencyList)
                     }
-                }else {
-                    // Log de erro caso a resposta não seja OK (HTTP 200)
-                    Log.e("CurrenciesService", "Erro na resposta: Código ${response.code()} - ${response.message()}")
                 }
             }
             stopSelf(msg.arg1)
